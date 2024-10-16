@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -84,3 +85,15 @@ const styles = StyleSheet.create({
 });
 
 export default ProfileScreen;
+=======
+import React from 'react';
+import { View, Text } from 'react-native';
+
+export default function ProfileScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Profile Screen</Text>
+    </View>
+  );
+}
+>>>>>>> d688c59 (first commit)

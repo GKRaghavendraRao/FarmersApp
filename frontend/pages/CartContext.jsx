@@ -16,7 +16,11 @@ export const CartProvider = ({ children }) => {
       setCartItems(updatedItems);
     } else {
       // If item does not exist, add it to the cart with quantity 1
+<<<<<<< HEAD
       setCartItems([...cartItems, { ...item, quantity: 1 }]); // Assign price directly from the item
+=======
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+>>>>>>> d688c59 (first commit)
     }
   };
 

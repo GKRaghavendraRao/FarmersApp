@@ -1,10 +1,15 @@
 import React from 'react';
+<<<<<<< HEAD
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+=======
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+>>>>>>> d688c59 (first commit)
 import { FlatGrid } from 'react-native-super-grid';
 import { createStackNavigator } from '@react-navigation/stack';
 import ToolDetail from '../components/ToolDetail'; // Adjust the import path as needed
 
 const toolsData = [
+<<<<<<< HEAD
   {
     id: 1,
     name: "Tractor",
@@ -96,11 +101,17 @@ const toolsData = [
     description: "Uses laser technology to achieve a uniform land level, improving water distribution and crop yield. It enhances field efficiency and contributes to soil conservation.",
     price: "3,75,000"
   }
+=======
+  { id: '1', name: 'Tractor', price: 5000, image: require('../assets/tractor.png') },
+  { id: '2', name: 'Plow', price: 1500, image: require('../assets/plow.png') },
+  { id: '3', name: 'Harvester', price: 7000, image: require('../assets/harvester.png') },
+>>>>>>> d688c59 (first commit)
 ];
 
 const Stack = createStackNavigator();
 
 function ToolsGrid({ navigation }) {
+<<<<<<< HEAD
   return (
     <View style={styles.container}>
       <FlatGrid
@@ -121,12 +132,31 @@ function ToolsGrid({ navigation }) {
         )}
       />
     </View>
+=======
+  return (  
+    <FlatGrid
+      itemDimension={150}
+      data={toolsData}
+      style={{ marginTop: 10, flex: 1,backgroundColor:'#042211',}}
+      spacing={10}
+      renderItem={({ item }) => (
+        <TouchableOpacity onPress={() => navigation.navigate('ToolDetail', { item })}>
+          <View style={{ justifyContent: 'center', alignItems: 'center', borderRadius: 15, padding: 10, height: 150, backgroundColor: '#f5fcf8' }}>
+            <Image source={item.image} style={{ width: 80, height: 80, marginBottom: 10,borderRadius:5 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#2d3748' }}>{item.name}</Text>
+            <Text style={{ fontSize: 16, color: '#011c0d' }}>{item.price}</Text>
+          </View>
+        </TouchableOpacity>
+      )}
+    />
+>>>>>>> d688c59 (first commit)
   );
 }
 
 export default function MachineryComponent() {
   return (
     <Stack.Navigator initialRouteName="ToolsGrid">
+<<<<<<< HEAD
       <Stack.Screen
         name="ToolsGrid"
         component={ToolsGrid}
@@ -175,3 +205,10 @@ const styles = StyleSheet.create({
     color: '#4caf50', // Highlight price in green for clarity
   },
 });
+=======
+      <Stack.Screen name="ToolsGrid" component={ToolsGrid} options={{ title: 'Tools for rent' }} style={{backgroundColor:'#1E293B'}} />
+      <Stack.Screen name="ToolDetail" component={ToolDetail} options={{ title: 'Tool Details' }} />
+    </Stack.Navigator>
+  );
+}
+>>>>>>> d688c59 (first commit)

@@ -10,53 +10,32 @@
     "test": "jest"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^2.0.0",
-    "@react-native-community/masked-view": "^0.1.11",
-<<<<<<< HEAD
-    "@react-native-picker/picker": "^2.9.0",
-=======
->>>>>>> d688c59 (first commit)
-    "@react-navigation/bottom-tabs": "^6.6.1",
-    "@react-navigation/native": "^6.1.18",
-    "@react-navigation/native-stack": "^6.11.0",
-    "@react-navigation/stack": "^6.4.1",
-    "autoprefixer": "^10.4.20",
-<<<<<<< HEAD
-    "axios": "^1.7.7",
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.3",
-    "cors": "^2.8.5",
-    "express": "^4.21.1",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.8.1",
-    "nativewind": "^2.0.11",
-    "nodemon": "^3.1.7",
-    "postcss": "^8.4.47",
-    "react": "18.3.1",
-    "react-native": "0.75.3",
-    "react-native-fs": "^2.20.0",
-    "react-native-gesture-handler": "^2.20.0",
+    "@react-native-masked-view/masked-view": "^0.3.2",
+    "@react-native-picker/picker": "^2.10.0",
+    "@react-navigation/bottom-tabs": "^7.0.12",
+    "@react-navigation/native": "^7.0.7",
+    "@react-navigation/native-stack": "^7.1.8",
+    "@react-navigation/stack": "^7.0.12",
+    "axios": "^1.7.8",
+    "express-async-handler": "^1.2.0",
+    "http-status-codes": "^2.3.0",
+    "react": "^18.3.1",
+    "react-native": "^0.75.3",
+    "react-native-gesture-handler": "^2.21.2",
     "react-native-linear-gradient": "^2.8.3",
-    "react-native-reanimated": "^3.16.1",
+    "react-native-network-info": "^5.2.1",
+    "react-native-paper": "^5.12.5",
+    "react-native-reanimated": "^3.16.3",
     "react-native-safe-area-context": "^4.14.0",
-=======
-    "nativewind": "^2.0.11",
-    "postcss": "^8.4.47",
-    "react": "18.3.1",
-    "react-native": "0.75.3",
-    "react-native-gesture-handler": "^2.20.0",
-    "react-native-reanimated": "^3.15.4",
-    "react-native-safe-area-context": "^4.11.0",
->>>>>>> d688c59 (first commit)
-    "react-native-screens": "^3.34.0",
+    "react-native-screens": "^4.3.0",
     "react-native-super-grid": "^6.0.1",
-    "react-native-vector-icons": "^10.2.0",
-    "tailwind-rn": "^4.2.0"
+    "react-native-vector-icons": "^10.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
+    "@react-native-community/cli": "latest",
     "@react-native/babel-preset": "0.75.3",
     "@react-native/eslint-config": "0.75.3",
     "@react-native/metro-config": "0.75.3",
@@ -69,11 +48,6 @@
     "metro-react-native-babel-preset": "^0.77.0",
     "prettier": "2.8.8",
     "react-test-renderer": "18.3.1",
-<<<<<<< HEAD
-    "tailwindcss": "^3.4.14",
-=======
-    "tailwindcss": "^3.4.13",
->>>>>>> d688c59 (first commit)
     "typescript": "5.0.4"
   },
   "engines": {

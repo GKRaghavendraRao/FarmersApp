@@ -1,22 +1,54 @@
-import React from 'react';
-<<<<<<< HEAD
+// File: src/components/ToolDetail.js
+
+import React, { useContext } from 'react';
 import { View, Text, Image, ScrollView, Button, StyleSheet } from 'react-native';
-=======
-import { View, Text, Image, ScrollView, Button } from 'react-native';
->>>>>>> d688c59 (first commit)
-import { useCart } from '../pages/CartContext'; // Adjust the import path as needed
+import { useCart } from '../pages/CartContext';
+import { UserContext } from '../contexts/UserContext';
 
 export default function ToolDetail({ route }) {
   const { item } = route.params;
   const { addToCart } = useCart();
+  const { user } = useContext(UserContext);
 
-<<<<<<< HEAD
-  const handleAddToCart = () => {
+  const BACKEND_URL = "http://10.0.2.2:5000";
+
+  const handleAddToCart = async () => {
     const itemWithNumericPrice = {
       ...item,
-      price: parseFloat(item.price.replace(',', '')), // Convert "5,000" to 5000
+      price: parseFloat(item.price.replace(',', '')), // Convert price to numeric value
+      quantity: 1,
     };
-    addToCart(itemWithNumericPrice);
+
+    try {
+      const imageUri = item.image.uri ? item.image.uri : item.image;
+
+      const response = await fetch(`${BACKEND_URL}/cart/add`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: user._id,
+          item: {
+            itemId: item.id,
+            name: item.name,
+            price: itemWithNumericPrice.price,
+            quantity: itemWithNumericPrice.quantity,
+            image: imageUri,
+          },
+        }),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        addToCart(itemWithNumericPrice);
+        console.log("Item added to cart:", result.cart);
+      } else {
+        console.error("Error adding item to cart:", result.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -25,9 +57,7 @@ export default function ToolDetail({ route }) {
       <Text style={styles.name}>{item.name}</Text>
       <Text style={styles.price}>₹{item.price}</Text>
       <View style={styles.divider} />
-      <Text style={styles.description}>
-        {item.description}
-      </Text>
+      <Text style={styles.description}>{item.description}</Text>
       <View style={styles.divider} />
       <View style={styles.footer}>
         <Text style={styles.footerPrice}>₹{item.price}</Text>
@@ -36,26 +66,10 @@ export default function ToolDetail({ route }) {
           onPress={handleAddToCart}
           color="#6200EE"
         />
-=======
-  return (
-    <ScrollView style={{ flex: 1, padding: 16, backgroundColor: '#042211' }}>
-      <Image source={item.image} style={{ width: 200, height: 200,borderRadius:20, alignSelf: 'center' }} />
-      <Text style={{ fontSize: 24, fontWeight: 'bold', marginVertical: 16,color:'#acf7cc' }}>{item.name}</Text>
-      <Text style={{ fontSize: 20, color: '#7bf6af',padding:5 }}>${item.price}</Text>
-      <View style={{ borderBottomWidth: 1, borderColor: '#ccc', marginVertical: 16 }} />
-      <Text style={{ fontSize: 16, color: '#d8f9e6' }}>
-        This is a detailed description of the {item.name}. It includes all the features and benefits of this crop.
-      </Text>
-      <View style={{ borderBottomWidth: 1, borderColor: '#ccc', marginVertical: 16 }} />
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 20 }}>
-        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#d8f9e6' }}>${item.price}</Text>
-        <Button title="Add to Cart" onPress={() => addToCart(item)} color="#841584" />
->>>>>>> d688c59 (first commit)
       </View>
     </ScrollView>
   );
 }
-<<<<<<< HEAD
 
 const styles = StyleSheet.create({
   container: {
@@ -104,5 +118,3 @@ const styles = StyleSheet.create({
     color: '#2d3748',
   },
 });
-=======
->>>>>>> d688c59 (first commit)

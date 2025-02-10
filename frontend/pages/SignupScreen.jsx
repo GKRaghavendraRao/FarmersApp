@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useContext, useState } from "react";
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -17,7 +16,7 @@ const SignupScreen = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null); // State to handle errors
 
-  const BACKEND_URL = "http://192.168.1.203:5000"; // Update with your backend URL
+  const BACKEND_URL = "http://10.0.2.2:5000"; // Update with your backend URL
 
   const handleSignup = async () => {
     try {
@@ -29,14 +28,14 @@ const SignupScreen = () => {
         body: JSON.stringify({
           username,
           email,
-          mobile, // Include mobile in request body
+          mobile,
           password,
         }),
       });
       const result = await response.json();
       if (response.ok) {
         setUser(result.user);
-        navigation.navigate("Profile"); // Navigate to Profile screen after successful signup
+        navigation.navigate("Main", { screen: "Profile" });
       } else {
         setError(result.message);
       }
@@ -45,6 +44,7 @@ const SignupScreen = () => {
       console.error("Error:", error);
     }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -202,38 +202,3 @@ const styles = StyleSheet.create({
     height: 350,
   },
 });
-=======
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
-
-export default function SignupScreen({ navigation }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSignup = () => {
-    // Handle signup logic here
-    navigation.navigate('Login'); // Navigate to Login screen on successful signup
-  };
-
-  return (
-    <View style={{ flex: 1, padding: 16, backgroundColor: 'white', justifyContent: 'center' }}>
-      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 16 }}>Sign Up</Text>
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 12, paddingHorizontal: 8 }}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 12, paddingHorizontal: 8 }}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      <Button title="Sign Up" onPress={handleSignup} />
-      <Button title="Already have an account? Login" onPress={() => navigation.navigate('Login')} />
-    </View>
-  );
-}
->>>>>>> d688c59 (first commit)
